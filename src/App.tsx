@@ -3,30 +3,29 @@ import './main-style.css'
 import Header from './components/Header';
 import Card from './components/Card';
 import { useEffect, useState } from "react";
+import Search from './components/Search';
+import Filter from './components/Filter';
+import { CountrySearchProvider } from './context/SearchCountry';
+import Main from './components/Main';
 function App() {
-  const [countries, setCountries] = useState<any>([]);
-  useEffect(()=>{
-    fetch("https://restcountries.com/v3.1/all")
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data[0], countries);
-      setCountries(data)
-    })
-    .catch((error) => {
-      console.log(error)
-    })
-  },[]);
+  // const [countries, setCountries] = useState<any>([]);
+
   return (
-    <div className="App">
-     <Header />
-     <main>
-      {
-        countries.map((item:any)=>{
-          return <Card key={item.name.common} country={item}/>
-        })
-      }
-     </main>
-    </div>
+    <CountrySearchProvider >
+      <div className="App">
+        <Header />
+        {
+          // countries.length > 0 &&
+          <main>
+            <div className='search-filter-wrapper'>
+              <Search />
+              <Filter />
+            </div>
+            <Main />
+          </main>
+        }
+      </div>
+    </CountrySearchProvider>
   );
 }
 

@@ -3,18 +3,20 @@ function Card({country}:any) {
   return (
     <div className="card">
       <img src={country.flags.svg} alt="flag" className="country-flag"/>
-      <h2 className="country-details">{country.name.common}</h2>
-      <div>
-        <span className="country-details">Population: </span>
-        <span className="country-details">{country.population}</span>
+      <div className="country-details">
+      <h2>{country.name.common}</h2>
       </div>
-      <div>
-        <span className="country-details">Region: </span>
-        <span className="country-details">{country.region}</span>
+      <div className="country-details">
+        <span>Population: </span>
+        <span>{country.population}</span>
       </div>
-      <div>
-        <span className="country-details">Capital:</span>
-        <span className="country-details">{country.capital}</span>
+      <div className="country-details">
+        <span>Region: </span>
+        <span>{country.region}</span>
+      </div>
+      <div className="country-details">
+        <span>Capital: </span>
+        <span>{country.capital}</span>
       </div>
     </div>
   )
