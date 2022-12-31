@@ -1,8 +1,6 @@
 import './App.css';
 import './main-style.css'
 import Header from './components/Header';
-import Card from './components/Card';
-import { useEffect, useState } from "react";
 import Search from './components/Search';
 import Filter from './components/Filter';
 import { CountrySearchProvider } from './context/SearchCountry';

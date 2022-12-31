@@ -1,4 +1,3 @@
-import flag from "../assets/1280px-Flag_of_Germany.svg.png";
 function Card({country}:any) {
   return (
     <div className="card">
