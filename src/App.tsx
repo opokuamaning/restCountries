@@ -1,29 +1,31 @@
-import './App.css';
-import './main-style.css'
-import Header from './components/Header';
-import Search from './components/Search';
-import Filter from './components/Filter';
-import { CountrySearchProvider } from './context/SearchCountry';
-import Main from './components/Main';
-function App() {
-  // const [countries, setCountries] = useState<any>([]);
+import "./App.css";
+import "./main-style.css";
+import Header from "./components/Header";
+import Toggler from "./context/Toggler";
+import { ChangeBackground } from "./components/ChangeBackground";
+import { CountrySearchProvider } from "./context/SearchCountry";
+import { Route, Routes } from "react-router-dom";
+import CountryDetails from "./components/CountryDetails";
+import Countries from "./components/Countries";
+function App() { 
 
   return (
-    <CountrySearchProvider >
-      <div className="App">
+    <Toggler>
+      <CountrySearchProvider>
+      <ChangeBackground>
         <Header />
         {
           // countries.length > 0 &&
           <main>
-            <div className='search-filter-wrapper'>
-              <Search />
-              <Filter />
-            </div>
-            <Main />
+            <Routes>
+              <Route path="/" element={<Countries />} />
+              <Route path="/:country" element={<CountryDetails />}/>
+            </Routes>
           </main>
         }
-      </div>
+      </ChangeBackground>
     </CountrySearchProvider>
+    </Toggler>
   );
 }
 

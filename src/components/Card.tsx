@@ -1,6 +1,11 @@
+import { useNavigate } from "react-router-dom"
+import { useToggler } from "../context/Toggler"
 function Card({country}:any) {
+const navigate = useNavigate()
+const {mode} = useToggler()
+    const lightDarkMode = {backgroundColor: mode==='light' ? 'white' : '#2B3844', color: mode==='light' ? 'black' : '#fff'}
   return (
-    <div className="card">
+    <div className="card" onClick={()=>navigate(`${country.name.common}`, {state:{country}})} style={lightDarkMode}>
       <img src={country.flags.svg} alt="flag" className="country-flag"/>
       <div className="country-details">
       <h2>{country.name.common}</h2>
