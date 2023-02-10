@@ -2,14 +2,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./CountryDetails.css";
-import { useToggler } from "../context/Toggler";
 
 function CountryDetails() {
-  const { mode } = useToggler();
-  const lightDarkMode = {
-    backgroundColor: mode === "Light" ? "white" : "#2B3844",
-    color: mode === "Light" ? "black" : "#fff",
-  };
+
+ 
   const location = useLocation();
   console.log(location.state);
   const {

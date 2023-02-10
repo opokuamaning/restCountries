@@ -7,7 +7,7 @@ select {
   border-radius: 7px;
   /* appearance: none; */
   cursor: pointer;
-  position: relative;
+  /* position: relative; */
 }
 
 /* div > .arrow-down-icon {
