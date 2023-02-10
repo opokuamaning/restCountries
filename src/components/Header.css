@@ -12,6 +12,7 @@
 
 .changeMode {
     /* background: transparent; */
+    gap: 10px;
     border: none;
     font-family: 'Nunito Sans';
     font-style: normal;

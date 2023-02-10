@@ -3,7 +3,7 @@ import "./Filter.css"
 import { useToggler } from "../context/Toggler";
 function Filter() {
   const {mode} = useToggler()
-  const lightDarkMode = {backgroundColor: mode==='light' ? 'white' : '#2B3844', color: mode==='light' ? 'black' : '#fff'}
+  const lightDarkMode = {backgroundColor: mode==='Light' ? 'white' : '#2B3844', color: mode==='Light' ? 'black' : '#fff'}
   const { setAllCountries } = useSearchCountries();
   const filterCountryHandler = (e: any) => {
     console.log(e.target.value, "gh");

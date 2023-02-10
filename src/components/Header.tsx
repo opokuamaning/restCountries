@@ -4,7 +4,7 @@ import "./Header.css";
 import { useToggler } from '../context/Toggler';
 const Header = () => {
   const {mode, toggleMode} = useToggler()
-    const lightDarkMode = {backgroundColor: mode==='light' ? 'white' : '#2B3844', color: mode==='light' ? 'black' : '#fff'}
+    const lightDarkMode = {backgroundColor: mode==='Light' ? 'white' : '#2B3844', color: mode==='Light' ? 'black' : '#fff'}
   return (
     <header className='header' style={lightDarkMode}>
         <h1>

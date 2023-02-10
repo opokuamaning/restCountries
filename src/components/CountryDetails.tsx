@@ -2,32 +2,47 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./CountryDetails.css";
+import { useToggler } from "../context/Toggler";
 
 function CountryDetails() {
+  const { mode } = useToggler();
+  const lightDarkMode = {
+    backgroundColor: mode === "Light" ? "white" : "#2B3844",
+    color: mode === "Light" ? "black" : "#fff",
+  };
   const location = useLocation();
   console.log(location.state);
-  const {flags, name, population, region, subregion, capital, tld, currencies, languages, borders} = location.state.country;
-  const f = Object.keys(name.nativeName)[0]
-  const native = name.nativeName[`${f}`][`official`]
+  const {
+    flags,
+    name,
+    population,
+    region,
+    subregion,
+    capital,
+    tld,
+    currencies,
+    languages,
+    borders,
+  } = location.state.country;
+  const f = Object.keys(name.nativeName)[0];
+  const native = name.nativeName[`${f}`][`official`];
 
-  const curr = Object.keys(currencies)[0]
-  const currency = currencies[`${curr}`][`name`]
+  const curr = Object.keys(currencies)[0];
+  const currency = currencies[`${curr}`][`name`];
 
-  const lang = Object.keys(languages)
-  const language = languages[`${lang}`]
-  console.log(native, 1)
-  const navigate = useNavigate()
+  const lang = Object.keys(languages);
+  const language = languages[`${lang}`];
+  console.log(native, 1);
+  const navigate = useNavigate();
   return (
     <div className="main-div">
-      <div className="backArrow" onClick={()=>navigate(-1)}>
+      <div className="backArrow" onClick={() => navigate(-1)}>
         <FontAwesomeIcon icon={faArrowLeft} className="back-icon" />
         <span>Back</span>
       </div>
       <div className="detail-wrapper">
         <div className="flag">
-          <img
-            src={flags.svg} alt="flag" className="country-flag"
-          />
+          <img src={flags.svg} alt="flag" className="country-flag" />
         </div>
         <div className="details">
           <h2>{name.common}</h2>
@@ -67,10 +82,15 @@ function CountryDetails() {
               <span>{language}</span>
             </div>
           </div>
-          <div className="country-borders">
+          <div className="country-borders" >
             <span>Border Countries: </span>
             <div className="border-wrapper">
-              {borders && borders.map((border:any) => <span key={border} className="border-coutries">{border}</span>)}
+              {borders &&
+                borders.map((border: any) => (
+                  <span key={border} className="border-coutries">
+                    {border}
+                  </span>
+                ))}
             </div>
           </div>
         </div>

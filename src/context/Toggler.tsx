@@ -6,9 +6,9 @@ type toggleProvider = {
   children : React.ReactNode
 }
 const Toggler = ({children}:toggleProvider) => {
-  const [mode, setMode] = useState('light')
+  const [mode, setMode] = useState('Light')
   return (
-    <ContextToggler.Provider value={{mode, toggleMode: ()=> setMode((previousMode)=>previousMode === 'light' ? 'dark' : 'light') }}>
+    <ContextToggler.Provider value={{mode, toggleMode: ()=> setMode((previousMode)=>previousMode === 'Light' ? 'Dark' : 'Light') }}>
       {children}
     </ContextToggler.Provider>
   )

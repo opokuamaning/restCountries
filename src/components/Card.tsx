@@ -3,7 +3,7 @@ import { useToggler } from "../context/Toggler"
 function Card({country}:any) {
 const navigate = useNavigate()
 const {mode} = useToggler()
-    const lightDarkMode = {backgroundColor: mode==='light' ? 'white' : '#2B3844', color: mode==='light' ? 'black' : '#fff'}
+    const lightDarkMode = {backgroundColor: mode==='Light' ? 'white' : '#2B3844', color: mode==='Light' ? 'black' : '#fff'}
   return (
     <div className="card" onClick={()=>navigate(`${country.name.common}`, {state:{country}})} style={lightDarkMode}>
       <img src={country.flags.svg} alt="flag" className="country-flag"/>

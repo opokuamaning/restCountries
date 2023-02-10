@@ -6,7 +6,7 @@ import { useToggler } from "../context/Toggler";
 
 const Search = () => {
   const {mode} = useToggler()
-  const lightDarkMode = {backgroundColor: mode==='light' ? 'white' : '#2B3844', color: mode==='light' ? 'black' : '#fff'}
+  const lightDarkMode = {backgroundColor: mode==='Light' ? 'white' : '#2B3844', color: mode==='Light' ? 'black' : '#fff'}
   const { setAllCountries } = useSearchCountries();
   const searchCountryHandler = (e: any) => {
     if (e.target.value.length > 0) {
