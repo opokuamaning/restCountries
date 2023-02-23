@@ -2,10 +2,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./CountryDetails.css";
+import { useToggler } from "../context/Toggler";
 
 function CountryDetails() {
 
- 
+  const {mode, toggleMode} = useToggler()
+  const lightDarkMode = {backgroundColor: mode==='Light' ? 'white' : '#2B3844', color: mode==='Light' ? 'black' : '#fff'}
   const location = useLocation();
   console.log(location.state);
   const {
@@ -32,7 +34,7 @@ function CountryDetails() {
   const navigate = useNavigate();
   return (
     <div className="main-div">
-      <div className="backArrow" onClick={() => navigate(-1)}>
+      <div className="backArrow" onClick={() => navigate(-1)} style={lightDarkMode}>
         <FontAwesomeIcon icon={faArrowLeft} className="back-icon" />
         <span>Back</span>
       </div>
@@ -80,11 +82,11 @@ function CountryDetails() {
           </div>
           <div className="country-borders" >
             <span>Border Countries: </span>
-            <div className="border-wrapper">
+            <div className="border-wrapper" >
               {borders &&
                 borders.map((border: any) => (
-                  <span key={border} className="border-coutries">
-                    {border}
+                  <span key={border} className="border-coutries" style={lightDarkMode}>
+                    {border} 
                   </span>
                 ))}
             </div>
