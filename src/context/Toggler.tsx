@@ -1,7 +1,10 @@
 import React from 'react'
 import { createContext, useContext, useState } from "react";
-
-export const ContextToggler = createContext({} as any)
+type ContextTogglerType = {
+  mode: string;
+  toggleMode: () => void;
+};
+export const ContextToggler = createContext({} as ContextTogglerType)
 type toggleProvider = {
   children : React.ReactNode
 }

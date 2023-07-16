@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import { useToggler } from "../context/Toggler"
-function Card({country}:any) {
+import { ICountries } from "../context/SearchCountry"
+function Card({country}:ICountries) {
 const navigate = useNavigate()
 const {mode} = useToggler()
     const lightDarkMode = {backgroundColor: mode==='Light' ? 'white' : '#2B3844', color: mode==='Light' ? 'black' : '#fff'}

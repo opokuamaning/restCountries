@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { useSearchCountries } from "../context/SearchCountry";
 import Card from "./Card";
+import { ICountries } from "../context/SearchCountry";
 function Main() {
     const { countries, setAllCountries } = useSearchCountries()
     const [loading, setLoading] = useState(true);
@@ -29,7 +30,7 @@ function Main() {
     return (
             <>
                 {
-                countries.map((item: any) => {
+                countries.map((item: ICountries) => {
                     return <Card key={item.name.common} country={item} />
                 })
             }

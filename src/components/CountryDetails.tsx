@@ -84,7 +84,7 @@ function CountryDetails() {
             <span>Border Countries: </span>
             <div className="border-wrapper" >
               {borders &&
-                borders.map((border: any) => (
+                borders.map((border: string) => (
                   <span key={border} className="border-coutries" style={lightDarkMode}>
                     {border} 
                   </span>

@@ -5,7 +5,7 @@ function Filter() {
   const {mode} = useToggler()
   const lightDarkMode = {backgroundColor: mode==='Light' ? 'white' : '#2B3844', color: mode==='Light' ? 'black' : '#fff'}
   const { setAllCountries } = useSearchCountries();
-  const filterCountryHandler = (e: any) => {
+  const filterCountryHandler = (e:  React.ChangeEvent<HTMLSelectElement> ) => {
     console.log(e.target.value, "gh");
     if (e.target.value.trim() === "Filter by Region") {
       fetch("https://restcountries.com/v3.1/all")

@@ -8,7 +8,7 @@ const Search = () => {
   const {mode} = useToggler()
   const lightDarkMode = {backgroundColor: mode==='Light' ? 'white' : '#2B3844', color: mode==='Light' ? 'black' : '#fff'}
   const { setAllCountries } = useSearchCountries();
-  const searchCountryHandler = (e: any) => {
+  const searchCountryHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value.length > 0) {
       fetch(`https://restcountries.com/v3.1/name/${e.target.value}`)
         .then((response) => response.json())
