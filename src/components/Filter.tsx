@@ -2,10 +2,10 @@ import { useSearchCountries } from "../context/SearchCountry";
 import "./Filter.css"
 import { useToggler } from "../context/Toggler";
 function Filter() {
-  const {mode} = useToggler()
-  const lightDarkMode = {backgroundColor: mode==='Light' ? 'white' : '#2B3844', color: mode==='Light' ? 'black' : '#fff'}
-  const { setAllCountries } = useSearchCountries();
-  const filterCountryHandler = (e:  React.ChangeEvent<HTMLSelectElement> ) => {
+  const { mode } = useToggler()
+  const lightDarkMode = { backgroundColor: mode === 'Light' ? 'white' : '#2B3844', color: mode === 'Light' ? 'black' : '#fff' }
+  const { setAllCountries, setSearchBy } = useSearchCountries();
+  const filterCountryHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
     console.log(e.target.value, "gh");
     if (e.target.value.trim() === "Filter by Region") {
       fetch("https://restcountries.com/v3.1/all")
@@ -17,6 +17,7 @@ function Filter() {
         .catch((error) => {
           console.log(error);
         });
+      setSearchBy(undefined)
       return;
     }
     fetch(`https://restcountries.com/v3.1/region/${e.target.value}`)
@@ -24,6 +25,7 @@ function Filter() {
       .then((data) => {
         // console.log(data[0], countries);
         setAllCountries(data);
+        setSearchBy(e.target.value)
       })
       .catch((error) => {
         console.log(error);
